@@ -15,7 +15,7 @@ class CalendarController extends Controller
             ->map(function($trip) {
                 return [
                     'id' => $trip->id,
-                    'title' => $trip->vehicle->plate . ' - ' . $trip->driver->name,
+                    'title' => ($trip->vehicle?->plate ?? 'Sem Veículo') . ' - ' . ($trip->driver?->name ?? 'Sem Motorista'),
                     'start' => $trip->departure_time->toIso8601String(),
                     'end' => $trip->return_time ? $trip->return_time->toIso8601String() : $trip->departure_time->addHours(4)->toIso8601String(),
                     'url' => route('trips.edit', $trip),
