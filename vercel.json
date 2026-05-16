@@ -30,6 +30,6 @@
         "QUEUE_CONNECTION": "sync",
         "LOG_CHANNEL": "stderr",
         "APP_ENV": "production",
-        "APP_DEBUG": "false"
+        "APP_DEBUG": "true"
     }
 }
