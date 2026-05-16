@@ -35,8 +35,8 @@
                         <div class="text-xs text-gray-500">{{ $trip->departure_time->format('H:i') }}</div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm text-gray-900 font-semibold">{{ $trip->vehicle->model }} ({{ $trip->vehicle->plate }})</div>
-                        <div class="text-xs text-gray-500">{{ $trip->driver->name }}</div>
+                        <div class="text-sm text-gray-900 font-semibold">{{ $trip->vehicle?->model ?? 'Sem Veículo' }} ({{ $trip->vehicle?->plate ?? 'S/ Placa' }})</div>
+                        <div class="text-xs text-gray-500">{{ $trip->driver?->name ?? 'Sem Motorista' }}</div>
                     </td>
                     <td class="px-6 py-4">
                         <div class="text-sm text-gray-900">{{ $trip->origin }}</div>
