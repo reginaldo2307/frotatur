@@ -138,23 +138,25 @@ class TripController extends Controller
         // Se a viagem foi concluída agora, atualizar o veículo
         if ($validated['status'] === 'completed' && $oldStatus !== 'completed') {
             $vehicle = $trip->vehicle;
-            $vehicleUpdateData = ['status' => 'available'];
-            
-            if ($request->end_km && $request->end_km > $vehicle->current_km) {
-                $vehicleUpdateData['current_km'] = $request->end_km;
+            if ($vehicle) {
+                $vehicleUpdateData = ['status' => 'available'];
+                
+                if ($request->end_km && $request->end_km > $vehicle->current_km) {
+                    $vehicleUpdateData['current_km'] = $request->end_km;
+                }
+                
+                $vehicle->update($vehicleUpdateData);
             }
-            
-            $vehicle->update($vehicleUpdateData);
         }
 
         // Se a viagem está em curso, marcar veículo como ocupado
-        if ($validated['status'] === 'in_progress') {
+        if ($validated['status'] === 'in_progress' && $trip->vehicle) {
             $trip->vehicle->update(['status' => 'busy']);
         }
 
         // Se a viagem foi cancelada ou voltou para agendada, liberar veículo (se ele não estiver em manutenção)
         if (($validated['status'] === 'cancelled' || $validated['status'] === 'scheduled') && $oldStatus === 'in_progress') {
-            if ($trip->vehicle->status === 'busy') {
+            if ($trip->vehicle && $trip->vehicle->status === 'busy') {
                 $trip->vehicle->update(['status' => 'available']);
             }
         }

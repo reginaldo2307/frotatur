@@ -123,7 +123,7 @@ class MaintenanceController extends Controller
     {
         // Restaurar status do veículo se ele estava em manutenção
         $vehicle = $maintenance->vehicle;
-        if ($vehicle->status === 'maintenance') {
+        if ($vehicle && $vehicle->status === 'maintenance') {
             $vehicle->update(['status' => 'available']);
         }
 
