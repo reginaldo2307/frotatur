@@ -42,13 +42,13 @@
         <table class="grid">
             <tr>
                 <td width="20%"><b>Veículo:</b></td>
-                <td width="30%">{{ $trip->vehicle->model }} ({{ $trip->vehicle->plate }})</td>
-                <td width="20%"><b>Motorista:</b></td>
-                <td width="30%">{{ $trip->driver->name }}</td>
+                <td width="30%">{{ $trip->vehicle?->model ?? 'Sem Veículo' }} ({{ $trip->vehicle?->plate ?? 'S/ Placa' }})</td>
+                <th width="20%">Motorista:</th>
+                <td width="30%">{{ $trip->driver?->name ?? 'Sem Motorista' }}</td>
             </tr>
             <tr>
                 <td><b>Capacidade:</b></td>
-                <td>{{ $trip->vehicle->capacity }} Lugares</td>
+                <td>{{ $trip->vehicle?->capacity ?? '0' }} Lugares</td>
                 <td><b>Passageiros:</b></td>
                 <td>{{ $trip->passenger_count }} Pessoas</td>
             </tr>

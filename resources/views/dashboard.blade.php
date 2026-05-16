@@ -74,7 +74,7 @@
                     </div>
                     <div class="flex-1">
                         <p class="text-sm font-bold text-gray-900 dark:text-white">{{ $trip->destination }}</p>
-                        <p class="text-xs text-gray-500 dark:text-slate-400">{{ $trip->driver->name }} • {{ $trip->departure_time->format('H:i') }}</p>
+                        <p class="text-xs text-gray-500 dark:text-slate-400">{{ $trip->driver?->name ?? 'Sem Motorista' }} • {{ $trip->departure_time->format('H:i') }}</p>
                     </div>
                     <div class="text-right">
                         <span class="text-xs font-bold text-blue-600 dark:text-blue-400">R$ {{ number_format($trip->price, 0) }}</span>

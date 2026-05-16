@@ -30,8 +30,8 @@
                 @forelse($maintenances as $maintenance)
                 <tr class="hover:bg-gray-50 transition-colors duration-150">
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm font-bold text-gray-900">{{ $maintenance->vehicle->plate }}</div>
-                        <div class="text-xs text-gray-500">{{ $maintenance->vehicle->model }}</div>
+                        <div class="text-sm font-bold text-gray-900">{{ $maintenance->vehicle?->plate ?? 'S/ Placa' }}</div>
+                        <div class="text-xs text-gray-500">{{ $maintenance->vehicle?->model ?? 'Sem Veículo' }}</div>
                     </td>
                     <td class="px-6 py-4">
                         <span class="px-2 py-0.5 text-xs font-bold rounded {{ $maintenance->type == 'preventive' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' }}">
