@@ -29,6 +29,7 @@
 
     <!-- Table -->
     <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
         <table class="w-full text-left border-collapse">
             <thead>
                 <tr class="bg-slate-50 dark:bg-slate-800/50">
@@ -86,6 +87,7 @@
                 @endforeach
             </tbody>
         </table>
+        </div>
         
         <div class="px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800">
             {{ $companies->links() }}

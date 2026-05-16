@@ -30,6 +30,7 @@
     </div>
 
     <div class="bg-white shadow-sm rounded-xl overflow-hidden border border-gray-100">
+        <div class="overflow-x-auto">
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
                 <tr>
@@ -109,5 +110,6 @@
                 @endforelse
             </tbody>
         </table>
+        </div>
     </div>
 </x-app-layout>
